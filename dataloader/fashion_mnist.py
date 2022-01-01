@@ -1,15 +1,18 @@
 import tensorflow as tf
+import numpy as np
 
 class FashionMNISTDataset():
-    def __init__(self, ):
+    def __init__(self, batch_size=128, buffer_size=2048, augmentation=False):
 
         (train_images, _), (test_images, _) = tf.keras.datasets.fashion_mnist.load_data()
+        train_images = np.reshape(train_images, (-1, 28, 28, 1))
+        test_images = np.reshape(test_images, (-1, 28, 28, 1))
 
-        self.ds_train = self._build_train_pipeline(train_images)
-        #self.ds_val = self._build_test_pipeline(validation)
-        self.ds_test = self._build_test_pipeline(test_images)
+        self.ds_combined = self._build_train_pipeline(np.concatenate([train_images, test_images]), batch_size, buffer_size, augmentation)
+        self.ds_train = self._build_train_pipeline(train_images, batch_size, buffer_size, augmentation)
+        self.ds_test = self._build_test_pipeline(test_images, batch_size)
 
-    def _build_train_pipeline(self, ds_images, batch_size, buffer_size, augmentation=False):
+    def _build_train_pipeline(self, ds_images, batch_size, buffer_size, augmentation):
         ds = tf.data.Dataset.from_tensor_slices(ds_images)
         ds = ds.map(self.preprocess, num_parallel_calls=tf.data.AUTOTUNE)
         ds = ds.shuffle(buffer_size)
