@@ -1,4 +1,4 @@
-name: chexnet
+name: fashion-mnist
 channels:
   - conda-forge
   - defaults
