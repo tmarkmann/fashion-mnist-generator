@@ -1,0 +1,19 @@
+name: chexnet
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - tensorflow
+  - tensorflow-datasets=4.4.0
+  - tensorflow-gpu
+  - py-opencv
+  - jupyterlab
+  - ipywidgets
+  - ipykernel
+  - iprogress
+  - matplotlib
+  - pandas
+  - pip:
+    - tensorflow-addons[tensorflow]
+    - tf-explain
+    - lime
