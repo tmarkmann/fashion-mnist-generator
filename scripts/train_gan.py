@@ -2,6 +2,11 @@ import tensorflow as tf
 import numpy as np
 from dataloader.fashion_mnist import FashionMNISTDataset
 from models.gan import GAN
+from utils.example_generator import ExampleGeneratorCallback
+from pathlib import Path
+
+OUTPUT_DIR = 'output'
+Path(OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
 
 dataset = FashionMNISTDataset(batch_size=128)
 
@@ -12,4 +17,5 @@ gan.compile(
     loss_fn=tf.keras.losses.BinaryCrossentropy(from_logits=True),
 )
 
-gan.fit(dataset.ds_combined, epochs=20)
+example_generator_cb = ExampleGeneratorCallback(output_path=OUTPUT_DIR)
+history = gan.fit(dataset.ds_combined, epochs=20, callbacks=[example_generator_cb])
