@@ -1,17 +1,18 @@
 name: fashion-mnist
 channels:
   - conda-forge
+  - apple
   - defaults
 dependencies:
-  - tensorflow=2.7.0
-  - tensorflow-gpu=2.7.0
+  - apple::tensorflow-deps=2.7.0
   - jupyterlab
   - ipywidgets
   - ipykernel
   - iprogress
   - matplotlib
-  - pandas
   - pip
   - pip:
+    - tensorflow-macos==2.7.0
+    - tensorflow-metal
     - tensorflow-gan
     - tensorflow-datasets==4.4.0
