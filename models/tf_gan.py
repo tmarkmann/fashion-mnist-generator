@@ -150,10 +150,6 @@ class GAN():
                     [evalparams.n_images, self.hparams.noise_dims]),
                 is_training=False)
         image_write_ops = get_write2disk_ops(images, evalparams.n_images, self.gen_out_dir)
-
-        #evaluation.evaluate_once(
-        #    checkpoint_dir,
-        #    eval_ops=image_write_ops)
         
         evaluation.evaluate_repeatedly(
             checkpoint_dir,
