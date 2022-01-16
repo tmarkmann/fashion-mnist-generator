@@ -8,6 +8,6 @@ export CHECKPOINT_DIR=~/lsgm_fashion/checkpoint
 export EXPR_ID=1
 
 cd ../LSGM
-python3 evaluate_vae.py --data $DATA_DIR/mnist --root $CHECKPOINT_DIR --save $EXPR_ID/eval_vae --eval_mode evaluate \
+python3 evaluate_vae.py --data $DATA_DIR/fashion-mnist --root $CHECKPOINT_DIR --save $EXPR_ID/eval_vae --eval_mode evaluate \
         --checkpoint $CHECKPOINT_DIR/$EXPR_ID/vae/checkpoint.pt --num_process_per_node 2 --fid_dir $FID_STATS_DIR \
         --fid_eval --nll_eval
