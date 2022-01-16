@@ -1,0 +1,17 @@
+name: lsgm
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - pytorch
+  - torchvision
+  - matplotlib
+  - tensorboard
+  - tensorboardx
+  - scipy
+  - pip
+  - pip:
+    - lmdb
+    - tfrecord
+    - torchdiffeq
