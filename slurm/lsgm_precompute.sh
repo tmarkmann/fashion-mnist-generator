@@ -2,7 +2,7 @@
 source /media/compute/homes/tmarkmann/miniconda3/etc/profile.d/conda.sh
 conda activate lsgm
 
-export TFDS_DATA_DIR=~/tensorflow_datasets
+export TFDS_DATA_DIR=~/lsgm_fashion/dataset
 export fid_dir=~/lsgm_fashion/fid
 
 cd ../LSGM
