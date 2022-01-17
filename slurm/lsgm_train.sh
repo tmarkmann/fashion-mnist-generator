@@ -3,7 +3,7 @@ source /media/compute/homes/tmarkmann/miniconda3/etc/profile.d/conda.sh
 conda activate lsgm
 
 export DATA_DIR=~/lsgm_fashion/dataset
-export fid_dir=~/lsgm_fashion/fid
+export FID_STATS_DIR=~/lsgm_fashion/fid
 export CHECKPOINT_DIR=~/lsgm_fashion/checkpoint
 export EXPR_ID=1
 
