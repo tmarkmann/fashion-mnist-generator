@@ -1,7 +1,8 @@
 #!/bin/bash
 source /media/compute/homes/tmarkmann/miniconda3/etc/profile.d/conda.sh
 conda activate stylegan
-module load 
+module load cuda/10.0
+export CUDA_HOME=/media/compute/vol/cuda/10.0
 
 cd ~/stylegan2-ada
 python3 train.py --outdir ./results --snap=10 --aug=noaug --data=./datasets/fashionmnist --res=32 --aug=noaug \
