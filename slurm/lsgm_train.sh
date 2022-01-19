@@ -14,4 +14,4 @@ python3 train_vada.py --data $DATA_DIR/fashion-mnist --root $CHECKPOINT_DIR --sa
         --learning_rate_dae 3e-4 --learning_rate_min_dae 3e-4 --train_ode_solver_tol 1e-5 --cont_kl_anneal  \
         --sde_type vpsde --iw_sample_p ll_iw --num_process_per_node 2 --use_se \
         --vae_checkpoint $CHECKPOINT_DIR/$EXPR_ID/vae/checkpoint.pt  --dae_arch ncsnpp --embedding_scale 1000 \
-        --mixing_logit_init -6 --warmup_epochs 20 --drop_inactive_var --skip_final_eval --fid_dir $FID_STATS_DIR
+        --mixing_logit_init -6 --warmup_epochs 20 --drop_inactive_var --skip_final_eval --fid_dir $FID_STATS_DIR --cont_training
