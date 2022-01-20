@@ -13,14 +13,6 @@ config = inception_fm_net_config
 
 dataset = FashionMNISTInceptionDataset(batch_size=128)
 
-print("Test examples: ", len(dataset.ds_test) * 128)
-print("Validation examples: ", len(dataset.ds_val) * 128)
-
-
-score = mnist_score(dataset.ds_test)
-
-print(score)
-quit()
 OUTPUT_DIR = 'output'
 Path(OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
 
@@ -48,7 +40,7 @@ with file_writer.as_default():
     tf.summary.text("config", tf.convert_to_tensor(config_matrix), step=0)
 
 # Checkpoint Callback to only save best checkpoint
-checkpoint_filepath = f'checkpoints/inception' + datetime.now().strftime("%Y-%m-%d--%H.%M") + '/cp.ckpt'
+checkpoint_filepath = f'checkpoints/inception/' + datetime.now().strftime("%Y-%m-%d--%H.%M") + '/cp.ckpt'
 checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
     filepath=checkpoint_filepath,
     save_weights_only=True,
