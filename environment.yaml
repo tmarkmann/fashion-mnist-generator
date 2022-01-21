@@ -12,6 +12,7 @@ dependencies:
   - matplotlib
   - pandas
   - pip
+  - scikit-image
   - pip:
     - tensorflow-gan
     - tensorflow-datasets==4.4.0
