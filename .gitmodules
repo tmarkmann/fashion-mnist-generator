@@ -4,3 +4,6 @@
 [submodule "stylegan2-ada"]
 	path = stylegan2-ada
 	url = https://github.com/mmorasch/stylegan2-ada
+[submodule "fashion-mnist-exp"]
+	path = fashion-mnist-exp
+	url = https://github.com/tmarkmann/fashion-mnist-exp
