@@ -1,6 +1,8 @@
 #!/bin/bash
 source /media/compute/homes/tmarkmann/miniconda3/etc/profile.d/conda.sh
 conda activate lsgm
+module load cuda/11.2
+export CUDA_HOME=/media/compute/vol/cuda/11.2
 
 export DATA_DIR=~/lsgm_fashion/dataset
 export FID_STATS_DIR=~/lsgm_fashion/fid
