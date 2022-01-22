@@ -99,7 +99,7 @@ class GAN():
         if not tf.io.gfile.exists(self.train_log_dir):
             tf.io.gfile.makedirs(self.train_log_dir)
 
-        tf.summary.scalar('MNIST_Classifier_score', mnist_score(self.ds_images))
+        #tf.summary.scalar('MNIST_Classifier_score', mnist_score(self.ds_images))
 
         with tf.variable_scope('Generator', reuse=tf.compat.v1.AUTO_REUSE):
             images = unconditional_generator(
@@ -107,7 +107,7 @@ class GAN():
                 is_training=False)
         frechet = mnist_frechet_distance(self.ds_images, images)
         #classifier_score = mnist_score(images)
-        tf.summary.scalar('MNIST_Frechet_distance', frechet)
+        #tf.summary.scalar('MNIST_Frechet_distance', frechet)
         #tf.summary.scalar('MNIST_Classifier_score', classifier_score)
 
         #with tf.name_scope('train'):
@@ -121,9 +121,7 @@ class GAN():
 
         status_message = tf.strings.join([
             'Starting train step: ',
-            tf.as_string(tf.train.get_or_create_global_step()),
-            ', Frechet distance: ',
-            tf.as_string(frechet)],
+            tf.as_string(tf.train.get_or_create_global_step())],
             name='status_message',)
         
         tfgan.gan_train(
