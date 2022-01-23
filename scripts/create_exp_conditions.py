@@ -1,7 +1,7 @@
 import csv
 import glob
 
-ROOTDIR = './exp_images'
+ROOTDIR = '/Users/tmarkmann/fashion/fashion-mnist-exp/exp_images'
 HEADER = ['type', 'path']
 
 with open(f'{ROOTDIR}/conditions.csv', 'w') as f:
@@ -12,13 +12,17 @@ with open(f'{ROOTDIR}/conditions.csv', 'w') as f:
     for file in real_images[:10]:
         writer.writerow(['real', file])
 
-    #for file in glob.glob(f'{ROOTDIR}/tfgan/*.png'):
-    #    writer.writerow(['tfgan', file])
-    #
-    #for file in glob.glob(f'{ROOTDIR}/vae/*.png'):
-    #    writer.writerow(['vae', file])
-    #
-    #for file in glob.glob(f'{ROOTDIR}/lsgm/*.png'):
-    #    writer.writerow(['lsgm', file])
+    tfgan_images = glob.glob(f'{ROOTDIR}/tfgan/*.png')
+    for file in tfgan_images[:10]:
+        writer.writerow(['tfgan', file])
+    
+    cvae_images = glob.glob(f'{ROOTDIR}/cvae/*.png')
+    for file in cvae_images[:10]:
+        writer.writerow(['cvae', file])
+    
+    lsgm_images = glob.glob(f'{ROOTDIR}/lsgm/*.png')
+    for file in lsgm_images[:10]:
+        writer.writerow(['lsgm', file])
+    
     #for file in glob.glob(f'{ROOTDIR}/stylegan2/*.png'):
     #    writer.writerow(['stylegan2', file])
