@@ -5,5 +5,5 @@ module load cuda/10.0
 export CUDA_HOME=/media/compute/vol/cuda/10.0
 
 cd ~/stylegan2-ada
-python generate.py --outdir=./results --trunc=1 --seeds=1,2,3,5-1000 \
-    network=./results/00009-fashionmnist-res32-auto1-noaug-resumecustom/network-snapshot-002416.pkl
+python generate.py --outdir=./results --trunc=1 --seeds=1-1000 \
+    --network=./results/00009-fashionmnist-res32-auto1-noaug-resumecustom/network-snapshot-002416.pkl
