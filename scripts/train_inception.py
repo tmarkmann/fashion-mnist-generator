@@ -1,13 +1,9 @@
 from datetime import datetime
 from pathlib import Path
 import tensorflow as tf
-import tensorflow_datasets as tfds
 from configs.inception_fm_net_config import inception_fm_net_config
 from dataloader.fashion_mnist_for_inception import FashionMNISTInceptionDataset
 from models.inception_fashion_mnist import FashionMNISTInception
-import matplotlib.pyplot as plt
-
-from utils.metrics import mnist_score
 
 config = inception_fm_net_config
 
