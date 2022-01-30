@@ -1,5 +1,7 @@
 import csv
 import glob
+from random import shuffle
+
 
 ROOTDIR = '/Users/tmarkmann/fashion/fashion-mnist-exp/exp_images'
 HEADER = ['type', 'path']
@@ -9,20 +11,31 @@ with open(f'{ROOTDIR}/conditions.csv', 'w') as f:
     writer.writerow(HEADER)
 
     real_images = glob.glob(f'{ROOTDIR}/real/*.png')
-    for file in real_images[:10]:
+    shuffle(real_images)
+    for file in real_images[:800]:
+        file = '/'.join((file.split('/'))[-3:])
         writer.writerow(['real', file])
 
     tfgan_images = glob.glob(f'{ROOTDIR}/tfgan/*.png')
-    for file in tfgan_images[:10]:
+    shuffle(tfgan_images)
+    for file in tfgan_images[:300]:
+        file = '/'.join((file.split('/'))[-3:])
         writer.writerow(['tfgan', file])
     
     cvae_images = glob.glob(f'{ROOTDIR}/cvae/*.png')
-    for file in cvae_images[:10]:
+    shuffle(cvae_images)
+    for file in cvae_images[:300]:
+        file = '/'.join((file.split('/'))[-3:])
         writer.writerow(['cvae', file])
     
     lsgm_images = glob.glob(f'{ROOTDIR}/lsgm/*.png')
-    for file in lsgm_images[:10]:
+    shuffle(lsgm_images)
+    for file in lsgm_images[:300]:
+        file = '/'.join((file.split('/'))[-3:])
         writer.writerow(['lsgm', file])
     
-    #for file in glob.glob(f'{ROOTDIR}/stylegan2/*.png'):
-    #    writer.writerow(['stylegan2', file])
+    stylegan_images = glob.glob(f'{ROOTDIR}/stylegan/*.png')
+    shuffle(stylegan_images)
+    for file in stylegan_images[:300]:
+        file = '/'.join((file.split('/'))[-3:])
+        writer.writerow(['stylegan2', file])
