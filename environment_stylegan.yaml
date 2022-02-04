@@ -1,0 +1,116 @@
+Last login: Fri Feb  4 12:24:10 on console
+ssh gpu-cluster%                                                                ➜  ~ ssh gpu-cluster
+tmarkmann@login.gpu.cit-ec.net's password: 
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.14.13-tf1-ll x86_64)
+
+ * GPU Cluster:    https://www.techfak.net/gpu-cluster
+ * Dokumentation:  https://techfak.net
+ * Status:         https://techfak.info
+ * Support:        support@techfak.net
+
+
+1 updates could not be installed automatically. For more details,
+see /var/log/unattended-upgrades/unattended-upgrades.log
+tmarkmann@gargamel:~$ source .bashrc 
+tmarkmann@gargamel:~$ conda list
+# packages in environment at /media/compute/homes/tmarkmann/miniconda3:
+#
+# Name                    Version                   Build  Channel
+_libgcc_mutex             0.1                        main  
+_openmp_mutex             4.5                       1_gnu  
+brotlipy                  0.7.0           py37h27cfd23_1003  
+ca-certificates           2021.10.26           h06a4308_2  
+certifi                   2021.10.8        py37h06a4308_0  
+cffi                      1.14.6           py37h400218f_0  
+charset-normalizer        2.0.4              pyhd3eb1b0_0  
+conda                     4.11.0           py37h06a4308_0  
+conda-package-handling    1.7.3            py37h27cfd23_1  
+cryptography              36.0.0           py37h9ce1e76_0  
+idna                      3.3                pyhd3eb1b0_0  
+ld_impl_linux-64          2.35.1               h7274673_9  
+libffi                    3.3                  he6710b0_2  
+libgcc-ng                 9.3.0               h5101ec6_17  
+libgomp                   9.3.0               h5101ec6_17  
+libstdcxx-ng              9.3.0               hd4cf53a_17  
+ncurses                   6.3                  h7f8727e_2  
+openssl                   1.1.1l               h7f8727e_0  
+pycosat                   0.6.3            py37h27cfd23_0  
+pycparser                 2.21               pyhd3eb1b0_0  
+pyopenssl                 21.0.0             pyhd3eb1b0_1  
+pysocks                   1.7.1                    py37_1  
+python                    3.7.10               h12debd9_4  
+readline                  8.1.2                h7f8727e_0  
+requests                  2.27.1             pyhd3eb1b0_0  
+ruamel_yaml               0.15.100         py37h27cfd23_0  
+setuptools                58.0.4           py37h06a4308_0  
+six                       1.16.0             pyhd3eb1b0_0  
+sqlite                    3.37.0               hc218d9a_0  
+tk                        8.6.11               h1ccaba5_0  
+tqdm                      4.62.3             pyhd3eb1b0_1  
+urllib3                   1.26.7             pyhd3eb1b0_0  
+xz                        5.2.5                h7b6447c_0  
+yaml                      0.2.5                h7b6447c_0  
+zlib                      1.2.11               h7f8727e_4  
+tmarkmann@gargamel:~$ conda env list
+# conda environments:
+#
+base                  *  /media/compute/homes/tmarkmann/miniconda3
+chexnet                  /media/compute/homes/tmarkmann/miniconda3/envs/chexnet
+fashion-mnist            /media/compute/homes/tmarkmann/miniconda3/envs/fashion-mnist
+lsgm                     /media/compute/homes/tmarkmann/miniconda3/envs/lsgm
+stylegan                 /media/compute/homes/tmarkmann/miniconda3/envs/stylegan
+
+tmarkmann@gargamel:~$ ls
+chexnet-tf2  fashion-mnist-generator  lsgm_fashion  old_fashion_mnist  stylegan2-ada
+datasets     lsgm                     miniconda3    stylegan           tensorflow_datasets
+tmarkmann@gargamel:~$ cd stylegan
+tmarkmann@gargamel:~/stylegan$ ;s
+-bash: syntax error near unexpected token `;'
+tmarkmann@gargamel:~/stylegan$ ls
+stylegan_generate.out  stylegan_train.out
+tmarkmann@gargamel:~/stylegan$ cd ..
+tmarkmann@gargamel:~$ ls
+chexnet-tf2  fashion-mnist-generator  lsgm_fashion  old_fashion_mnist  stylegan2-ada
+datasets     lsgm                     miniconda3    stylegan           tensorflow_datasets
+tmarkmann@gargamel:~$ cd stylegan2-ada/
+tmarkmann@gargamel:~/stylegan2-ada$ ls
+Dockerfile   calc_metrics.py  dnnlib       metrics       style_mixing.py
+LICENSE.txt  dataset_tool.py  docs         projector.py  train.py
+README.md    datasets         generate.py  results       training
+tmarkmann@gargamel:~/stylegan2-ada$ cd
+tmarkmann@gargamel:~$ ls
+chexnet-tf2  fashion-mnist-generator  lsgm_fashion  old_fashion_mnist  stylegan2-ada
+datasets     lsgm                     miniconda3    stylegan           tensorflow_datasets
+tmarkmann@gargamel:~$ conda activate stylegan
+(stylegan) tmarkmann@gargamel:~$ ls
+chexnet-tf2  fashion-mnist-generator  lsgm_fashion  old_fashion_mnist  stylegan2-ada
+datasets     lsgm                     miniconda3    stylegan           tensorflow_datasets
+(stylegan) tmarkmann@gargamel:~$ conda env export > environment.yml
+(stylegan) tmarkmann@gargamel:~$ ls
+chexnet-tf2      fashion-mnist-generator  miniconda3         stylegan2-ada
+datasets         lsgm                     old_fashion_mnist  tensorflow_datasets
+environment.yml  lsgm_fashion             stylegan
+(stylegan) tmarkmann@gargamel:~$ less environment.yml 
+
+  - sqlite=3.37.0=hc218d9a_0
+  - tensorboard=1.15.0=pyhb230dea_0
+  - tensorflow=1.15.0=gpu_py37h0f0df58_0
+  - tensorflow-base=1.15.0=gpu_py37h9dcbed7_0
+  - tensorflow-estimator=1.15.1=pyh2649769_0
+  - tensorflow-gpu=1.15.0=h0d30ee6_0
+  - termcolor=1.1.0=py37h06a4308_1
+  - tk=8.6.11=h1ccaba5_0
+  - typing_extensions=3.10.0.2=pyh06a4308_0
+  - webencodings=0.5.1=py37_1
+  - werkzeug=0.16.1=py_0
+  - wheel=0.37.1=pyhd3eb1b0_0
+  - wrapt=1.13.3=py37h7f8727e_2
+  - xz=5.2.5=h7b6447c_0
+  - zipp=3.7.0=pyhd3eb1b0_0
+  - zlib=1.2.11=h7f8727e_4
+  - zstd=1.4.9=haebb681_0
+  - pip:
+    - charset-normalizer==2.0.10
+    - idna==3.3
+    - requests==2.27.1
+    - urllib3==1.26.8
